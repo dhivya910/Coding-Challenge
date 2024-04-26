@@ -23,6 +23,7 @@ export default class UserController {
         ...city,
         density: city.population / city.area,
       }));
+
       //sort
       const sortBy: string = (req.query.sortBy as string) || "name";
       const sortOrder: string = (req.query.sortOrder as string) || "asc";
@@ -62,6 +63,7 @@ export default class UserController {
         endIndex
       );
       res.json({ paginatedCities, totalPages });
+
     } catch (e) {
       console.error(e);
       res.status(500).send({
@@ -97,6 +99,7 @@ export default class UserController {
       };
       cities.push(newCity);
       res.status(201).json(newCity);
+      
     } catch (e) {
       console.error(e);
       res.status(500).send({
@@ -105,40 +108,6 @@ export default class UserController {
       });
     }
   };
-
-  //sort all the cities by an attribute and sort order
-  // public getAllCitiesbySort = async (
-  //   req: Request,
-  //   res: Response
-  // ): Promise<any> => {
-  //   const sortBy: string = (req.query.sortBy as string) || "name";
-  //   const sortOrder: string = (req.query.sortOrder as string) || "asc";
-
-  //   let sortedCities: City[] = [...cities];
-  //   if (sortOrder == "asc") {
-  //     sortedCities.sort((a: City, b: City) => {
-  //       if (a[sortBy] < b[sortBy]) {
-  //         return -1;
-  //       } else if (a[sortBy] > b[sortBy]) {
-  //         return 1;
-  //       } else {
-  //         return 0;
-  //       }
-  //     });
-  //     res.json(sortedCities);
-  //   } else {
-  //     sortedCities.sort((a: City, b: City) => {
-  //       if (a[sortBy] > b[sortBy]) {
-  //         return -1;
-  //       } else if (a[sortBy] < b[sortBy]) {
-  //         return 1;
-  //       } else {
-  //         return 0;
-  //       }
-  //     });
-  //     res.json(sortedCities);
-  //   }
-  // };
 
   //filter the cities using contains
   public getAllCitiesbyFilter = async (

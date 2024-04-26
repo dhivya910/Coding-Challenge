@@ -7,10 +7,8 @@ const controller = new Controller();
 // Retrieve all Cities
 cities.get("/", controller.getAllCities);
 // Add a city
-cities.post("/",controller.addCity);
-// Retrieve sorted cities
-// cities.get("/sort",controller.getAllCitiesbySort);
+cities.post("/", controller.addCity);
 // Retrieve cities by filter
-cities.get("/filter",controller.getAllCitiesbyFilter);
+cities.get("/filter", controller.getAllCitiesbyFilter);
 
 export default cities;

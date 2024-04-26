@@ -27,7 +27,7 @@ class App {
 
   private setRoutes(): void {
     this.express.use("/", apiV1);
-    // this.express.use("/v1", apiV1);
+
   }
 
   private catchErrors(): void {
