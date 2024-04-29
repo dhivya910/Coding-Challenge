@@ -1,8 +1,5 @@
 import { Request, Response } from "express";
 import * as fs from "fs";
-import express = require("express");
-
-const app = express();
 
 interface City {
   name: string;
@@ -14,7 +11,6 @@ const jsonData: Buffer = fs.readFileSync("./public/documents/cities.json");
 const citiesFromJSON: City[] = JSON.parse(jsonData.toString());
 const cities: City[] = citiesFromJSON;
 
-app.use(express.json());
 export default class UserController {
   //gets all the cities with the density field
   public getAllCities = async (req: Request, res: Response): Promise<any> => {
